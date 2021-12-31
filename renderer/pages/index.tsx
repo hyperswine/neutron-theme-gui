@@ -1,7 +1,21 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Layout from '../components/Layout'
-import { Box } from '@chakra-ui/react'
+import {
+  Flex,
+  Box,
+  Button,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from '@chakra-ui/react'
+import { BrowserWindow } from 'electron'
+
 
 const IndexPage = () => {
   useEffect(() => {
@@ -15,15 +29,39 @@ const IndexPage = () => {
     global.ipcRenderer.send('message', 'HI FROM NEUTRON')
   }
 
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
     <Layout title="Neutron OS">
-      <h1>Hello Next.js 👋</h1>
+      <h1>Hello Next.js</h1>
       <button onClick={onSayHiClick}>Hello neutron!</button>
-      <p>
+      <Box>
         <Link href="/about">
           <a>About Neutron</a>
         </Link>
-      </p>
+      </Box>
+      <Box m="2rem" p="2rem" backgroundColor="blue" id="modal-shower">
+        <Button onClick={onOpen}>Open Modal</Button>
+
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+
+          <ModalContent>
+            <Box backgroundColor="red">
+
+              <Flex flexDir="row">
+                <ModalCloseButton />
+              </Flex>
+
+              <ModalHeader>Modal Title</ModalHeader>
+              <ModalBody>
+                HI, BYE
+              </ModalBody>
+            </Box>
+          </ModalContent>
+        </Modal>
+
+      </Box>
     </Layout>
   )
 }
