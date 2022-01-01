@@ -29,6 +29,11 @@ a {
     background-color: #595959 !important;
 }
 
+.titlebar {
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+}
+
 /* TEMP */
 .modal-dialog {
     /* position: absolute;

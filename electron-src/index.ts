@@ -12,22 +12,27 @@ app.on('ready', async () => {
   await prepareNext('./renderer')
 
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1920,
+    height: 1080,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: false,
       preload: join(__dirname, 'preload.js'),
+    },
+    titleBarStyle: 'hidden',
+    titleBarOverlay: {
+      color: '#2f3241',
+      symbolColor: '#74b1be',
     },
   })
 
   const url = isDev
     ? 'http://localhost:8000/'
     : format({
-        pathname: join(__dirname, '../renderer/out/index.html'),
-        protocol: 'file:',
-        slashes: true,
-      })
+      pathname: join(__dirname, '../renderer/out/index.html'),
+      protocol: 'file:',
+      slashes: true,
+    })
 
   mainWindow.loadURL(url)
 })
