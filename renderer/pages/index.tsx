@@ -13,10 +13,29 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
+  Grid,
+  GridItem,
 } from '@chakra-ui/react'
 import { BrowserWindow } from 'electron'
 
+interface FavoritedApps {
+  apps: Array<string>
+}
 
+const Dock = ({ apps }: FavoritedApps) => {
+  return (
+    <Flex flexDir="row" backgroundColor="blue" color="white" fontSize="1.2rem" justifyContent="center" w="50%">
+      {apps.map((m) => (
+        <Box m="1rem">
+        {m}
+        </Box>
+        ))}
+    </Flex>
+  )
+}
+
+
+// Index Page = desktop
 const IndexPage = () => {
   useEffect(() => {
     // add a listener to 'message' channel -> electron
@@ -25,44 +44,23 @@ const IndexPage = () => {
     })
   }, [])
 
-  const onSayHiClick = () => {
-    global.ipcRenderer.send('message', 'HI FROM NEUTRON')
-  }
-
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [favoritedApps, setFavoritedApps] = useState(Array<string>("Horizon Broswer", "Forgery", "Blender", "Apps", "Umbra Office", "File Browser"))
 
   return (
-    <Layout title="Neutron OS">
-      <h1>Hello Next.js</h1>
-      <button onClick={onSayHiClick}>Hello neutron!</button>
-      <Box>
-        <Link href="/about">
-          <a>About Neutron</a>
-        </Link>
-      </Box>
-      <Box m="2rem" p="2rem" backgroundColor="blue" id="modal-shower">
-        <Button onClick={onOpen}>Open Modal</Button>
+    <Grid h="100vh" templateRows='repeat(3, 1fr)' templateColumns='repeat(4, 1fr)'>
+      <GridItem id="logo" rowSpan={1} colSpan={1}>Logo</GridItem>
+      {/* Try colSpan 2 */}
+      <GridItem id="right-header" rowSpan={1} colSpan={3}>Header</GridItem>
 
-        <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
+      <GridItem id="files" rowSpan={1} colSpan={1}>Files</GridItem>
+      <GridItem id="reminders" rowSpan={1} colSpan={1}>Reminders</GridItem>
+      <GridItem id="news" rowSpan={1} colSpan={1}>News</GridItem>
+      <GridItem id="mail" rowSpan={1} colSpan={1}>Mail</GridItem>
 
-          <ModalContent>
-            <Box backgroundColor="red">
-
-              <Flex flexDir="row">
-                <ModalCloseButton />
-              </Flex>
-
-              <ModalHeader>Modal Title</ModalHeader>
-              <ModalBody>
-                HI, BYE
-              </ModalBody>
-            </Box>
-          </ModalContent>
-        </Modal>
-
-      </Box>
-    </Layout>
+      <GridItem id="dock" rowSpan={1} colSpan={4}>
+        <Dock apps={favoritedApps} />
+      </GridItem>
+    </Grid>
   )
 }
 
