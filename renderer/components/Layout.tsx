@@ -7,39 +7,30 @@ type Props = {
   title?: string
 }
 
+const _separator = ' | '
+
 const Layout = ({ children, title = 'This is the default title' }: Props) => (
   <div>
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
+      {/* MAYBE NOT DEVICE WIDTH => half the width? */}
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <header>
       <nav>
         <Link href="/">
           <a>Home</a>
-        </Link>{' '}
-        |{' '}
+        </Link> {_separator}
         <Link href="/about">
           <a>About</a>
-        </Link>{' '}
-        |{' '}
-        <Link href="/initial-props">
-          <a>With Initial Props</a>
-        </Link>{' '}
-        |{' '}
-        <Link href="/j2">
-          <a>J2</a>
-        </Link>{' '}
-        |{' '}
-        <Link href="/drag">
-          <a>Drag</a>
-        </Link>{' '}
-        |{' '}
-        <Link href="/j1">
-          <a>J1</a>
-        </Link>{' '}
-        |{' '}
+        </Link>{_separator}
+        <Link href="/_bootstrapmodal">
+          <a>Bootstrap Modal</a>
+        </Link>{_separator}
+        <Link href="/working">
+          <a>Working Example</a>
+        </Link>{_separator}
       </nav>
     </header>
     {children}
