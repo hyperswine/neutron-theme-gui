@@ -17,23 +17,10 @@ import {
   GridItem,
 } from '@chakra-ui/react'
 import { BrowserWindow } from 'electron'
-
-interface FavoritedApps {
-  apps: Array<string>
-}
-
-const Dock = ({ apps }: FavoritedApps) => {
-  return (
-    <Flex flexDir="row" backgroundColor="blue" color="white" fontSize="1.2rem" justifyContent="center" w="50%">
-      {apps.map((m) => (
-        <Box m="1rem">
-        {m}
-        </Box>
-        ))}
-    </Flex>
-  )
-}
-
+import Draggable from 'react-draggable'
+import Window from '../components/Window'
+import useScrollBlock from '../components/ScrollBlock'
+import Dock from "../components/Dock"
 
 // Index Page = desktop
 const IndexPage = () => {
@@ -46,20 +33,26 @@ const IndexPage = () => {
 
   const [favoritedApps, setFavoritedApps] = useState(Array<string>("Horizon Broswer", "Forgery", "Blender", "Apps", "Umbra Office", "File Browser"))
 
+  // also no scrolling allowed
+  const [blockScroll, allowScroll] = useScrollBlock()
+  blockScroll()
+
   return (
-    <Grid h="100vh" templateRows='repeat(3, 1fr)' templateColumns='repeat(4, 1fr)'>
+    // need 19 columns
+    <Grid h="100vh" templateRows='repeat(11, 1fr)' templateColumns='repeat(4, 1fr)'>
       <GridItem id="logo" rowSpan={1} colSpan={1}>Logo</GridItem>
-      {/* Try colSpan 2 */}
       <GridItem id="right-header" rowSpan={1} colSpan={3}>Header</GridItem>
 
-      <GridItem id="files" rowSpan={1} colSpan={1}>Files</GridItem>
-      <GridItem id="reminders" rowSpan={1} colSpan={1}>Reminders</GridItem>
-      <GridItem id="news" rowSpan={1} colSpan={1}>News</GridItem>
-      <GridItem id="mail" rowSpan={1} colSpan={1}>Mail</GridItem>
+      <GridItem id="files" rowSpan={9} colSpan={1}>Files</GridItem>
+      <GridItem id="reminders" rowSpan={9} colSpan={1}>Reminders</GridItem>
+      <GridItem id="news" rowSpan={9} colSpan={1}>News</GridItem>
+      <GridItem id="mail" rowSpan={9} colSpan={1}>Mail</GridItem>
 
-      <GridItem id="dock" rowSpan={1} colSpan={4}>
+      <GridItem id="docker-left" rowSpan={1} colSpan={1}></GridItem>
+      <GridItem id="dock" rowSpan={1} colSpan={2}>
         <Dock apps={favoritedApps} />
       </GridItem>
+      <GridItem id="docker-right" rowSpan={1} colSpan={1}></GridItem>
     </Grid>
   )
 }
