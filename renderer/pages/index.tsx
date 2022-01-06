@@ -41,7 +41,7 @@ const IndexPage = () => {
   blockScroll()
 
   return (
-    // need 19 columns
+    // need 19 columns!
     <Grid h="100vh" templateRows='repeat(11, 1fr)' templateColumns='repeat(4, 1fr)'>
       <GridItem id="logo" rowSpan={1} colSpan={1}>Logo</GridItem>
       <GridItem id="right-header" rowSpan={1} colSpan={3}>Header</GridItem>
