@@ -20,7 +20,10 @@ import { BrowserWindow } from 'electron'
 import Draggable from 'react-draggable'
 import Window from '../components/Window'
 import useScrollBlock from '../components/ScrollBlock'
-import Dock from "../components/Dock"
+import Dock, { NeutronApp } from "../components/Dock"
+import { Globe, UmbrellaFill, Folder, App } from "react-bootstrap-icons"
+import Blender from "../public/assets/BlenderLogo.png"
+import Forgery from "../public/assets/ForgeryLogo.png"
 
 // Index Page = desktop
 const IndexPage = () => {
@@ -31,7 +34,7 @@ const IndexPage = () => {
     })
   }, [])
 
-  const [favoritedApps, setFavoritedApps] = useState(Array<string>("Horizon Broswer", "Forgery", "Blender", "Apps", "Umbra Office", "File Browser"))
+  const [favoritedApps, setFavoritedApps] = useState([{name: "Horizon Broswer", imgIcon: Globe}, {name: "Forgery", imgIcon: Forgery}, {name: "Blender", imgIcon: Blender}, {name: "Apps", imgIcon: App}, {name: "Umbra Office", imgIcon: UmbrellaFill}, {name: "Files", imgIcon: Folder}])
 
   // also no scrolling allowed
   const [blockScroll, allowScroll] = useScrollBlock()
