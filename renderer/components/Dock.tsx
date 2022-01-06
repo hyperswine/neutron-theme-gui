@@ -12,7 +12,7 @@ export interface NeutronApp {
   howManyOpened?: boolean, // check this in in parent, update it and pass to child to open (close in parent and update there)
 }
 
-const Dock = (apps: NeutronApp[]) => {
+const Dock = (apps: Array<NeutronApp>) => {
   return (
     <Flex flexDir="row" backgroundColor="blue" color="white" fontSize="1.2rem" justifyContent="center" p="2rem">
       {apps.map((m) => (

@@ -34,7 +34,7 @@ const IndexPage = () => {
     })
   }, [])
 
-  const [favoritedApps, setFavoritedApps] = useState([{name: "Horizon Broswer", imgIcon: Globe}, {name: "Forgery", imgIcon: Forgery}, {name: "Blender", imgIcon: Blender}, {name: "Apps", imgIcon: App}, {name: "Umbra Office", imgIcon: UmbrellaFill}, {name: "Files", imgIcon: Folder}])
+  const [favoritedApps, setFavoritedApps] = useState(Array<NeutronApp>({name: "Horizon Broswer", imgIcon: Globe}, {name: "Forgery", imgIcon: Forgery}, {name: "Blender", imgIcon: Blender}, {name: "Apps", imgIcon: App}, {name: "Umbra Office", imgIcon: UmbrellaFill}, {name: "Files", imgIcon: Folder}))
 
   // also no scrolling allowed
   const [blockScroll, allowScroll] = useScrollBlock()
@@ -53,7 +53,7 @@ const IndexPage = () => {
 
       <GridItem id="docker-left" rowSpan={1} colSpan={1}></GridItem>
       <GridItem id="dock" rowSpan={1} colSpan={2}>
-        <Dock apps={favoritedApps} />
+        <Dock apps={...favoritedApps} />
       </GridItem>
       <GridItem id="docker-right" rowSpan={1} colSpan={1}></GridItem>
     </Grid>
