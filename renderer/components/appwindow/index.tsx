@@ -50,7 +50,7 @@ const AppWindow = (component: any) => {
             {show &&
                 <Rnd>
                     <Flex backgroundColor="gray" p="0.5rem" w="100%" h="100%" flexDir="column">
-                        <Flex class="app-titlebar" flexDir="row" justifyContent="flex-end" w="100%" backgroundColor="#2F3C56">
+                        <Flex className="app-titlebar" flexDir="row" justifyContent="flex-end" w="100%" backgroundColor="#2F3C56">
                             <Button variant="outline-light" onClick={handleMinimise} >Minimise</Button>
                             <Button variant="outline-light" onClick={handleClose}>Close</Button>
                         </Flex>
