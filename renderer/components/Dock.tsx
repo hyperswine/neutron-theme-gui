@@ -10,8 +10,6 @@ export interface NeutronApp {
   name: string,
   component?: any,
   imgIcon?: any,
-  // when press/open, see if its open already and whether multiple windows are allowed
-  // if allowed, create a RnD component for that window component specified as component
   multipleOpen?: boolean,
   howManyOpened?: boolean, // check this in in parent, update it and pass to child to open (close in parent and update there)
 }
@@ -21,7 +19,7 @@ export interface NeutronApp {
 const Settings = () => {
   return (
     <Box p="1rem">
-      <LoremIpsum/>
+      <LoremIpsum />
     </Box>
   )
 }
@@ -29,10 +27,17 @@ const Settings = () => {
 const SettingsTitle = () => {
   return (
     <Box>
-      <Search/>
+      <Search />
     </Box>
   )
 }
+
+// TODO: put logic of opening/closing app icons in dock
+// BUT put widget logic, opening/closing of files in index.js. Share that functionality with Dock by hooking onto some shared component or page?
+// Yea some shared component
+
+// When press/open, see if its open already and whether multiple windows are allowed
+// If allowed, create a RnD component for that window component specified as component
 
 const Dock = () => {
   const [apps, setApps] = useState(Array<NeutronApp>(
@@ -47,14 +52,14 @@ const Dock = () => {
       {apps.map((m) => (
         <Box m="1rem" key={m.name}>
           {/* <Image src={m.imgIcon}/> */}
-          <m.imgIcon size="2rem"/>
+          <m.imgIcon size="2rem" />
 
           {/* Check if conditions are true, props are passed down again */}
           {/* {m.component} */}
         </Box>
       ))}
       <Box>
-        <AppWindow AppComponent={<Settings/>} TitleComponent={<SettingsTitle/>}/>
+        <AppWindow AppComponent={<Settings />} TitleComponent={<SettingsTitle />} />
       </Box>
     </Flex>
   )
