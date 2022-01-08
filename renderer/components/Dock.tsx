@@ -1,6 +1,10 @@
 import { Box, Flex, Image } from "@chakra-ui/react"
-import React from "react"
+import React, { useState } from "react"
 import AppWindow from "./appwindow"
+import { Globe, UmbrellaFill, Folder, App, Search } from "react-bootstrap-icons"
+import Blender from "../public/assets/BlenderLogo.png"
+import Forgery from "../public/assets/ForgeryLogo.png"
+import { LoremIpsum, Avatar } from 'react-lorem-ipsum'
 
 export interface NeutronApp {
   name: string,
@@ -12,19 +16,45 @@ export interface NeutronApp {
   howManyOpened?: boolean, // check this in in parent, update it and pass to child to open (close in parent and update there)
 }
 
-const Dock = (apps: Array<NeutronApp>) => {
+
+// App Window for Settings
+const Settings = () => {
   return (
-    <Flex flexDir="row" backgroundColor="blue" color="white" fontSize="1.2rem" justifyContent="center" p="2rem">
+    <Box p="1rem">
+      <LoremIpsum/>
+    </Box>
+  )
+}
+
+const SettingsTitle = () => {
+  return (
+    <Box>
+      <Search/>
+    </Box>
+  )
+}
+
+const Dock = () => {
+  const [apps, setApps] = useState(Array<NeutronApp>(
+    { name: "Horizon", imgIcon: Globe, component: "Yes" },
+    { name: "Umbra", imgIcon: UmbrellaFill, component: "YES" },
+    { name: "Files", imgIcon: Folder, component: "YES" },
+    { name: "Apps", imgIcon: App, component: "YES" }
+  ))
+
+  return (
+    <Flex flexDir="row" backgroundColor="#0d7d9b" color="white" fontSize="1.2rem" justifyContent="center" p="1rem">
       {apps.map((m) => (
         <Box m="1rem" key={m.name}>
-          {m.imgIcon}
+          {/* <Image src={m.imgIcon}/> */}
+          <m.imgIcon size="2rem"/>
 
           {/* Check if conditions are true, props are passed down again */}
-          {m.component}
+          {/* {m.component} */}
         </Box>
       ))}
       <Box>
-        <AppWindow/>
+        <AppWindow AppComponent={<Settings/>} TitleComponent={<SettingsTitle/>}/>
       </Box>
     </Flex>
   )

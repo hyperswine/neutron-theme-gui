@@ -34,9 +34,9 @@ interface AppWindowProps {
     component: any,
 }
 
-// basically a draggable 'card'
+// basically a draggable 'card's
 // spawns in the middle -> TODO: spawn in the middle of the screen
-const AppWindow = (component: any) => {
+const AppWindow = ({AppComponent, TitleComponent}) => {
     const [show, setShow] = useState(true)
     const [exist, setExist] = useState(true)
 
@@ -46,16 +46,18 @@ const AppWindow = (component: any) => {
     // at first should not be shown
 
     return (
-        <Box>
+        <Box maxW="100%" minW="25%">
             {show &&
                 <Rnd>
-                    <Flex backgroundColor="gray" p="0.5rem" w="100%" h="100%" flexDir="column">
-                        <Flex className="app-titlebar" flexDir="row" justifyContent="flex-end" w="100%" backgroundColor="#2F3C56">
+                    <Flex backgroundColor="#072229" p="0.5rem" w="100%" h="100%" flexDir="column" >
+                        <Flex className="app-titlebar" flexDir="row" justifyContent="flex-end" w="100%" backgroundColor="black">
+                            {TitleComponent}
+                            <Box mr="15rem"></Box>
                             <Button variant="outline-light" onClick={handleMinimise} >Minimise</Button>
                             <Button variant="outline-light" onClick={handleClose}>Close</Button>
                         </Flex>
-                        <Box color="black">
-                            <LoremIpsum p={3}/>
+                        <Box color="black" overflowY="scroll" className="content-area">
+                            {AppComponent}
                         </Box>
                     </Flex>
                 </Rnd>}
