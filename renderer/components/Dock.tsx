@@ -14,7 +14,10 @@ export interface NeutronApp {
   howManyOpened?: boolean, // check this in in parent, update it and pass to child to open (close in parent and update there)
 }
 
-
+// TODO: functionality for each app is localised in the app itself.
+// Its layout, animations, text
+// NOW: for lower level stuff like accessing the OS, that will need a shared OS component
+// NOW: for opening and communicating with other apps, will need a shared AppWindowManager component
 // App Window for Settings
 const Settings = () => {
   return (
