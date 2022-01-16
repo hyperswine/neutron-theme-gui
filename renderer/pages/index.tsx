@@ -47,7 +47,7 @@ const IndexPage = () => {
 
       </GridItem>
       <GridItem id="right-header" rowSpan={1} colSpan={3}>
-        <Flex backgroundColor="gray" h="2rem" flexDir="row" justifyContent="center" pt="0.25rem">
+        <Flex backgroundColor="#0d7d9b" h="2rem" flexDir="row" justifyContent="center" pt="0.25rem" color="#e0d5d8">
           <Text fontFamily="sans-serif">Jan 9th 2021, 7:08AM</Text>
           <Text pl="4.5rem" fontFamily="sans-serif">Sydney, Australia</Text>
           <Text pl="4.5rem" fontFamily="sans-serif"><strong>80°F</strong> Thunderstorms <CloudLightningRainFill /></Text>
@@ -68,7 +68,7 @@ const IndexPage = () => {
         </Flex>
       </GridItem>
       <GridItem id="reminders" rowSpan={9} colSpan={1}>
-        <Flex backgroundColor="gray" minH="5rem" mr="2rem" flexDir="column">
+        <Flex backgroundColor="#4c5c61" minH="5rem" mr="2rem" flexDir="column">
           <Text justifySelf="center" textAlign="center" pt="0.5rem" fontSize="1.25rem">
             <strong>
               Reminders
@@ -94,7 +94,7 @@ const IndexPage = () => {
         </Flex>
       </GridItem>
       <GridItem id="news" rowSpan={9} colSpan={1}>
-        <Flex backgroundColor="gray" minH="5rem" mr="2rem" flexDir="column">
+        <Flex backgroundColor="#4c5c61" minH="5rem" mr="2rem" flexDir="column">
           <Text justifySelf="center" textAlign="center" pt="0.5rem" fontSize="1.25rem">
             <strong>
               News
@@ -120,7 +120,7 @@ const IndexPage = () => {
         </Flex>
       </GridItem>
       <GridItem id="mail" rowSpan={9} colSpan={1}>
-        <Flex backgroundColor="gray" minH="5rem" mr="2rem" flexDir="column">
+        <Flex backgroundColor="#4c5c61" minH="5rem" mr="2rem" flexDir="column">
           <Text justifySelf="center" textAlign="center" pt="0.5rem" fontSize="1.25rem">
             <strong>
               Mail

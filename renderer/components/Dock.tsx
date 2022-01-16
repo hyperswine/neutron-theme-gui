@@ -21,9 +21,29 @@ export interface NeutronApp {
 // App Window for Settings
 const Settings = () => {
   return (
-    <Box p="1rem">
-      <LoremIpsum />
-    </Box>
+    <Flex p="1rem" flexDir="row">
+      <Flex className="sidebar" flexDir="column" mr="1.5rem">
+        <Box>System</Box>
+
+        <Flex flexDir="row">
+          <Box>Wifi</Box>
+          <Box>Bluetooth</Box>
+        </Flex>
+
+        <Flex flexDir="row">
+          <Box>Updates</Box>
+          <Box>Accounts</Box>
+        </Flex>
+        <Box>Accessibility</Box>
+      </Flex>
+      <Flex className="content-area" flexDir="column">
+        <Flex flexDir="row">Display</Flex>
+        <Flex flexDir="row">Sound</Flex>
+        <Flex flexDir="row">Power</Flex>
+        <Flex flexDir="row">Storage</Flex>
+        <Flex flexDir="row">Features</Flex>
+      </Flex>
+    </Flex>
   )
 }
 

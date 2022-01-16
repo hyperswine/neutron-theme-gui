@@ -19,12 +19,14 @@ app.on('ready', async () => {
       contextIsolation: false,
       preload: join(__dirname, 'preload.js'),
     },
-    // titleBarStyle: 'hidden',
-    // titleBarOverlay: {
-    //   color: '#2f3241',
-    //   symbolColor: '#74b1be',
-    // },
+    titleBarStyle: 'hidden',
+    titleBarOverlay: {
+      symbolColor: '#e0d5d8',
+      color: '#0d7d9b'
+    },
   })
+
+  mainWindow.setMenu(null)
 
   const url = isDev
     ? 'http://localhost:8000/'
