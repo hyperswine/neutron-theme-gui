@@ -43,20 +43,28 @@ const AppWindow = ({AppComponent, TitleComponent}) => {
     const handleMinimise = () => setShow(false)
     const handleClose = () => setExist(false)
 
+    const handleKeyPress = (e) => {
+        if(e.which === 37) {
+            console.log("left clicked");
+        }
+    }
+
     // at first should not be shown
 
+    // capture win + >
+
     return (
-        <Box maxW="100%" minW="25%">
+        <Box onKeyPress={handleKeyPress}>
             {show &&
-                <Rnd>
-                    <Flex backgroundColor="#072229" p="0.5rem" w="100%" h="100%" flexDir="column" >
-                        <Flex className="app-titlebar" flexDir="row" justifyContent="flex-end" w="100%" backgroundColor="black">
+                <Rnd minWidth="50%" maxWidth="100%" dragHandleClassName="app-titlebar">
+                    <Flex backgroundColor="#072229" p="0.5rem" w="100%" h="100%" flexDir="column" overflowY="scroll">
+                        <Flex className="app-titlebar" flexDir="row" justifyContent="flex-end" w="100%" backgroundColor="#04151a">
                             {TitleComponent}
                             <Box mr="15rem"></Box>
                             <Button variant="outline-light" onClick={handleMinimise} >Minimise</Button>
                             <Button variant="outline-light" onClick={handleClose}>Close</Button>
                         </Flex>
-                        <Box color="black" overflowY="scroll" className="content-area">
+                        <Box color="black" className="content-area">
                             {AppComponent}
                         </Box>
                     </Flex>

@@ -14,6 +14,19 @@ export interface NeutronApp {
   howManyOpened?: boolean, // check this in in parent, update it and pass to child to open (close in parent and update there)
 }
 
+const InfoCard = ({ icon, content }) => {
+  return (
+    <Flex>
+      <Flex mr="5rem">
+        {icon}
+      </Flex>
+      <Flex>
+        {content}
+      </Flex>
+    </Flex>
+  )
+}
+
 // TODO: functionality for each app is localised in the app itself.
 // Its layout, animations, text
 // NOW: for lower level stuff like accessing the OS, that will need a shared OS component
@@ -22,7 +35,7 @@ export interface NeutronApp {
 const Settings = () => {
   return (
     <Flex p="1rem" flexDir="row">
-      <Flex className="sidebar" flexDir="column" mr="1.5rem">
+      <Flex className="sidebar" flexDir="column" mr="1.5rem" color="#e0d5d8">
         <Box>System</Box>
 
         <Flex flexDir="row">
@@ -36,7 +49,7 @@ const Settings = () => {
         </Flex>
         <Box>Accessibility</Box>
       </Flex>
-      <Flex className="content-area" flexDir="column">
+      <Flex className="content-area" flexDir="column" color="#e0d5d8">
         <Flex flexDir="row">Display</Flex>
         <Flex flexDir="row">Sound</Flex>
         <Flex flexDir="row">Power</Flex>

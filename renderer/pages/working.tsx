@@ -1,4 +1,4 @@
-import Window from "../components/Window"
+import Window from "../components/ref/Window"
 import Draggable from "react-draggable"
 import { Button, Card } from "react-bootstrap"
 import { Box } from "@chakra-ui/react"

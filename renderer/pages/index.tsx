@@ -20,7 +20,7 @@ import {
 import { Image } from '@chakra-ui/image'
 import { BrowserWindow } from 'electron'
 import Draggable from 'react-draggable'
-import Window from '../components/Window'
+import Window from '../components/ref/Window'
 import useScrollBlock from '../components/ScrollBlock'
 import Dock, { NeutronApp } from "../components/Dock"
 import SpectroLogo from "../public/assets/SpectroIcon.png"
@@ -54,7 +54,7 @@ const IndexPage = () => {
         </Flex>
       </GridItem>
 
-      <GridItem id="files" rowSpan={9} colSpan={1}>
+      <GridItem id="files" rowSpan={9} colSpan={1} color="black">
         <Flex flexDir="column" mt="1rem" p="1rem">
           <Box pb="1.5rem">
             <FileEarmarkText size={55} />
@@ -67,7 +67,7 @@ const IndexPage = () => {
           </Box>
         </Flex>
       </GridItem>
-      <GridItem id="reminders" rowSpan={9} colSpan={1}>
+      <GridItem id="reminders" rowSpan={9} colSpan={1} color="#e0d5d8">
         <Flex backgroundColor="#4c5c61" minH="5rem" mr="2rem" flexDir="column">
           <Text justifySelf="center" textAlign="center" pt="0.5rem" fontSize="1.25rem">
             <strong>
@@ -93,7 +93,7 @@ const IndexPage = () => {
           </Flex>
         </Flex>
       </GridItem>
-      <GridItem id="news" rowSpan={9} colSpan={1}>
+      <GridItem id="news" rowSpan={9} colSpan={1} color="#e0d5d8">
         <Flex backgroundColor="#4c5c61" minH="5rem" mr="2rem" flexDir="column">
           <Text justifySelf="center" textAlign="center" pt="0.5rem" fontSize="1.25rem">
             <strong>
@@ -119,7 +119,7 @@ const IndexPage = () => {
           </Flex>
         </Flex>
       </GridItem>
-      <GridItem id="mail" rowSpan={9} colSpan={1}>
+      <GridItem id="mail" rowSpan={9} colSpan={1} color="#e0d5d8">
         <Flex backgroundColor="#4c5c61" minH="5rem" mr="2rem" flexDir="column">
           <Text justifySelf="center" textAlign="center" pt="0.5rem" fontSize="1.25rem">
             <strong>
