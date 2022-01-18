@@ -40,7 +40,7 @@ const AppWindow = ({AppComponent, TitleComponent}) => {
     const [show, setShow] = useState(true)
     const [exist, setExist] = useState(true)
 
-    const handleMinimise = () => setShow(false)
+    const handleMinimise = () => setShow(true)
     const handleClose = () => setExist(false)
 
     const handleKeyPress = (e) => {
@@ -56,7 +56,8 @@ const AppWindow = ({AppComponent, TitleComponent}) => {
     return (
         <Box onKeyPress={handleKeyPress}>
             {show &&
-                <Rnd minWidth="50%" maxWidth="100%" dragHandleClassName="app-titlebar">
+                // IDK maybe it will make more sense later for the min/max stuff
+                <Rnd minWidth="50%" minHeight="50%" dragHandleClassName="app-titlebar">
                     <Flex backgroundColor="#072229" p="0.5rem" w="100%" h="100%" flexDir="column" overflowY="scroll">
                         <Flex className="app-titlebar" flexDir="row" justifyContent="flex-end" w="100%" backgroundColor="#04151a">
                             {TitleComponent}
