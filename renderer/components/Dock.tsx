@@ -116,9 +116,13 @@ const Dock = () => {
         return (
           <Box m="1rem" key={m.name}>
             {/* <Image src={m.imgIcon}/> */}
-            <Box onClick={handleClick}>
+            {show && <Box onClick={handleClick} backgroundColor="#062f3b">
               <m.imgIcon size="2rem" />
-            </Box>
+            </Box>}
+            {!show && <Box onClick={handleClick}>
+              <m.imgIcon size="2rem" />
+            </Box>}
+            
             {/* change the app component */}
             {show &&
               <AppWindow AppComponent={<AppHandler props={<Settings />} />} TitleComponent={<SettingsTitle />} />
