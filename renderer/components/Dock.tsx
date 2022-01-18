@@ -1,7 +1,7 @@
-import { Box, Flex, Image } from "@chakra-ui/react"
+import { Box, Flex, Image, Text } from "@chakra-ui/react"
 import React, { useState } from "react"
 import AppWindow from "./appwindow"
-import { Globe, UmbrellaFill, Folder, App, Search } from "react-bootstrap-icons"
+import { Globe, UmbrellaFill, Folder, App, Search, Display } from "react-bootstrap-icons"
 import Blender from "../public/assets/BlenderLogo.png"
 import Forgery from "../public/assets/ForgeryLogo.png"
 import { LoremIpsum, Avatar } from 'react-lorem-ipsum'
@@ -16,7 +16,7 @@ export interface NeutronApp {
 
 const InfoCard = ({ icon, content }) => {
   return (
-    <Flex>
+    <Flex flexDir="row">
       <Flex mr="5rem">
         {icon}
       </Flex>
@@ -33,6 +33,17 @@ const InfoCard = ({ icon, content }) => {
 // NOW: for opening and communicating with other apps, will need a shared AppWindowManager component
 // App Window for Settings
 const Settings = () => {
+  const DisplayContent = () => (
+    <Flex flexDir="column">
+      <Flex className="display-option">
+        <Text>Change display resolutions</Text>
+      </Flex>
+      <Flex className="display-option">
+        <Text>Change display layout</Text>
+      </Flex>
+    </Flex>
+  )
+
   return (
     <Flex p="1rem" flexDir="row">
       <Flex className="sidebar" flexDir="column" mr="1.5rem" color="#e0d5d8">
@@ -50,11 +61,12 @@ const Settings = () => {
         <Box>Accessibility</Box>
       </Flex>
       <Flex className="content-area" flexDir="column" color="#e0d5d8">
-        <Flex flexDir="row">Display</Flex>
+        {/* <Flex flexDir="row">Display</Flex>
         <Flex flexDir="row">Sound</Flex>
         <Flex flexDir="row">Power</Flex>
         <Flex flexDir="row">Storage</Flex>
-        <Flex flexDir="row">Features</Flex>
+        <Flex flexDir="row">Features</Flex> */}
+        <InfoCard icon={<Display/>} content={<DisplayContent/>}/>
       </Flex>
     </Flex>
   )
